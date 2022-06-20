@@ -22,7 +22,7 @@ h1 {
 	font-weight: 700;
 	color: white;
 }
-h2{
+button{
 	font-size: 24px !important;
 }
 h3 {
@@ -48,38 +48,41 @@ h6 {
 }
 
 .window-container{
- width:100%;
- height:auto;
+ width:100vw;
+ height: 100vh;
  display: flex;
   
 }
 .left-container{
-  width:33vw;
-  /* height: 100%; */
-  
+  width:33%;  
+  height: 100%;
 }
 
 .left-top-container{
   position:relative;
   width:100%;
-  height: 629px;
+  height: 63%;
   background-color: #46529D;
 }
 
 .left-bottom-container{
   width:100%;
-  height: 375px;
+  height:37%;
   background-color:#4D59A1;
 }
 .right-container{
-
-  width:67vw;
-  height: 100%;
+  width:67%;
+  height: 937px;;
 }
+.right-bottom-container{
+	width: 100%;
+	height:86%;
+	overflow-y: auto;
+  }
 
 .roomId-container{
   width:85%;
-  height: 135px;
+  /* height: 135px; */
   padding-left: 48px;
   padding-top:56px;
   padding-bottom: 25px;
@@ -117,23 +120,25 @@ margin-left: 2px;
   border: none;
   opacity: 0.5;
   padding-bottom: 24px;
-
 }
+.navbar-button:hover{
+	border-bottom: 4px solid #707FDD;
+	transition: border .2s;
+	animation-direction: normal;
+}
+
 
 .active{
   border-bottom: 4px solid #707FDD;
   opacity: 1 !important;
 }
 
-.right-bottom-comtainer{
-  width: 100%;
-  height: 869px;
-}
+
 
 .schedule-detail{
   position: relative;
 	left: 55px;
-	width: 100%;
+	width: 70%;
 }
 
 .schedule-header{
@@ -151,6 +156,7 @@ margin-left: 2px;
 .vertical-dotted-line {
 	border-left: 1px dotted rgba(236, 236, 236, 1);
 	height: 83px;
+	width: 30px;
 }
 
 .dot {

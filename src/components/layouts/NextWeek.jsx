@@ -1,4 +1,12 @@
+import Schedule from "../cards/Schedule"
+
 export default function NextWeek (){
 
-    return null
+    return (
+        <div className="right-bottom-container"  >
+                <Schedule/>
+
+                <Schedule/>
+         </div>
+    )
 }

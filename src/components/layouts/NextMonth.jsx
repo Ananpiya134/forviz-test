@@ -1,3 +1,9 @@
+import Schedule from "../cards/Schedule"
+
 export default function NextMonth(){
-    return null
+    return (
+        <div className="right-bottom-container"  >
+                <Schedule/>
+         </div>
+    )
 }
