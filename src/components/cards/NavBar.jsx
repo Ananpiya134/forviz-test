@@ -4,13 +4,13 @@ import { FetchDataContext } from '../../contexts/FetchDataContext'
 
 export default function NavBar (){
 
-    const {setSearchType, searchType} = useContext(FetchDataContext)
+    const {setSearchType, searchType, roomId} = useContext(FetchDataContext)
     const navigate = useNavigate()
 
     const handleClickNavigate = e => {
         // console.log(e.target.value)
         setSearchType(e.target.value)
-        navigate(e.target.value)
+        navigate(`${e.target.value}?roomId=${roomId}`)
         
     }
     
