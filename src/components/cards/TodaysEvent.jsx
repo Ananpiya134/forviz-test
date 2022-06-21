@@ -1,9 +1,12 @@
-export default function TodaysEvents (){
+import { timeRange } from "../../services/dateConverter"
 
+export default function TodaysEvents ({obj}){
+    
+    const period  = timeRange(obj)
     return (
         <div className='today-event'>
-                  <h4 style={{color:'white', opacity:'0.5'}}>12:00 - 13:00</h4>
-                  <h3 style={{color:'white'}}>Watch Buzz Light year</h3>
+                  <h4 style={{color:'white', opacity:'0.5'}}>{period}</h4>
+                  <h3 style={{color:'white'}}>{obj.title}</h3>
                 </div>
     )
 }

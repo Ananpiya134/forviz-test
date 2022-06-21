@@ -1,16 +1,18 @@
 import {useState, useEffect, createContext} from 'react'
 import {useLocation} from 'react-router-dom'
+import { getsTodayDetail } from '../services/dateConverter'
 import rawData from '../data/data.json'
 
 const FetchDataContext = createContext()
 
 export default function FetchDataContextProvider({children}){
 
-  const [roomId, setRoomId] = useState("");
+  	const [roomId, setRoomId] = useState("");
 	const [searchType, setSearchType] = useState("");
 	const [todayBookings, setTodayBookings] = useState([]);
 	const [searchBookings, setSearchBookings] = useState([]);
 	const location = useLocation();
+
 
 	const fetchingData = (id, weekNo) => {
 		const now = new Date().toDateString()+' 00:00:00'
@@ -63,22 +65,19 @@ export default function FetchDataContextProvider({children}){
 
 	}
 	useEffect(() => {
-		
-		fetchingData(roomId,'today')
-	},[])
-	useEffect(() => {
 		setRoomId(
 			location.search.split("=")[location.search.split("=").length - 1]
 		);
 		setSearchType(
 			location.pathname.split("/")[location.pathname.split("/").length - 1]
 		);
+		fetchingData(roomId,'today')
 		fetchingData(roomId,searchType)
 	},[ searchType, roomId])
-	
+	const todayDetail= getsTodayDetail()
     return (
         <>
-            <FetchDataContext.Provider value={{setSearchType, searchType, roomId, todayBookings, searchBookings}}>
+            <FetchDataContext.Provider value={{setSearchType, searchType, roomId, todayBookings, searchBookings,todayDetail}}>
                 {children}
             </FetchDataContext.Provider>
         </>

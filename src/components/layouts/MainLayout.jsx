@@ -1,8 +1,12 @@
+import {useContext} from 'react'
+import { FetchDataContext } from '../../contexts/FetchDataContext'
 import { Outlet } from "react-router-dom"
 import NavBar from "../cards/NavBar"
 import TodaysEvents from "../cards/TodaysEvent"
 export default function MainLayout (){
 
+  const {roomId, todayBookings, todayDetail} = useContext(FetchDataContext)
+  
     return (
         <div className="window-container">
 
@@ -10,17 +14,18 @@ export default function MainLayout (){
           <div className="left-container">
             <div className='left-top-container'>
               <div className='roomId-container'>
-                <h1>A101</h1>
+                <h1>{roomId}</h1>
               </div>
               <div className='today-date-container'>
                 <h6 style={{marginLeft:'7px'}}>Upcoming</h6>
-                <h5 style={{opacity:'0.5'}}>Monday</h5>
-                <h5 >28 Sep</h5>
+                <h5 style={{opacity:'0.5'}}>{todayDetail.day}</h5>
+                <h5 >{`${todayDetail.date} ${todayDetail.month}`}</h5>
               </div>
     
               <div className='today-event-container'>
-                <TodaysEvents/>
-                <TodaysEvents/>
+                {todayBookings.map(obj => {
+                  return <TodaysEvents obj={obj} key={obj.id}/>
+                })}
               </div>
     
             </div>

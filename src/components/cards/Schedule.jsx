@@ -1,11 +1,12 @@
 import Events from "./Events"
 
-export default function Schedule (){
-
+export default function Schedule ({dayArr}){
+    console.log(dayArr)
+    
     return (
         <>
         <div className="schedule-header" style={{marginTop:'78px'}}>
-                  <p>Today(Mon, 28 Sep)</p>
+                  <p>Today(day, 28 Sep)</p>
                 </div>
                 <Events/>
                 <Events/>
