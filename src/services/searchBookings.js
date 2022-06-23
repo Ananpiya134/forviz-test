@@ -3,6 +3,7 @@ import {FetchDataContext} from '../contexts/FetchDataContext'
 
 function Search (day){
     const {searchBookings, todayDetail} = useContext(FetchDataContext)
+    console.log(searchBookings.length)
     const result = []
 
     for(let i = 0; i < day; i++){
@@ -17,5 +18,9 @@ function Search (day){
 
 }
 
+function GetDay (arr){
+	const dayDetail = new Date(arr[0].startTime).toDateString().split(' ')
+	return {date:dayDetail[2], day:dayDetail[0], month: dayDetail[1]}
+}
 
-export {Search}
+export {Search, GetDay}
